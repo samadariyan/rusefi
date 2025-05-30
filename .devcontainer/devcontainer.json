@@ -44,17 +44,13 @@
         }
       },
       "extensions": [
-        "ms-vscode.cpptools",
-        "ms-vscode.cmake-tools",
-        "twxs.cmake",
-        "marus25.cortex-debug",
-        "vadimcn.vscode-lldb",
         "eamodio.gitlens",
+        "marus25.cortex-debug",
         "Gruntfuggly.todo-tree",
+        "ms-vscode.cpptools",
+        "vadimcn.vscode-lldb",
         "streetsidesoftware.code-spell-checker",
-        "cschlosser.doxdocgen",
-        "ms-azuretools.vscode-docker",
-        "ms-vscode.hexeditor"
+        "esbenp.prettier-vscode"
       ]
     }
   },
@@ -63,9 +59,10 @@
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.ssh/githubssh.pub,target=/home/rusefi/.ssh/id_ed25519.pub,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.ssh/githubssh,target=/home/rusefi/.ssh/id_ed25519,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.ssh/githubssh,target=/home/rusefi/.ssh/id_ed25519,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.ssh/known_hosts,target=/home/rusefi/.ssh/known_hosts,type=bind,consistency=cached"
   ],
-
+  
   "remoteEnv": {
     "SSH_AUTH_SOCK": "/run/ssh-agent.sock"
   },
