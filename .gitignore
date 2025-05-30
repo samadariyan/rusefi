@@ -28,8 +28,17 @@ log.txt
 # Eclipse
 .metadata/
 
+# Java build directories
+**/bin/
+**/target/
+**/.gradle/
+**/build/
+
 # rusEFI simulator makes logs, ignore those
 rusefi_simulator_log.mlg
 
 # bundle
 artifacts
+
+# Local scripts
+sync_branches.sh
