@@ -42,15 +42,10 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
     && yes password | passwd $USERNAME
 
-# Configure SSH server and known hosts
+# Configure SSH server
 RUN mkdir /var/run/sshd \
     && sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config \
-    && sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config \
-    && mkdir -p /home/$USERNAME/.ssh \
-    && echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" >> /home/$USERNAME/.ssh/known_hosts \
-    && chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh \
-    && chmod 700 /home/$USERNAME/.ssh \
-    && chmod 644 /home/$USERNAME/.ssh/known_hosts
+    && sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
 # Set up workspace directory with proper permissions
 WORKDIR /workspace
